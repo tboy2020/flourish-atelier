@@ -241,7 +241,6 @@
     <button class="tab" data-v="mentors">Mentors</button>
     <button class="tab" data-v="launch">Launchpad</button>
     <button class="tab" data-v="cards">The Routes</button>
-    <button class="tab" data-v="parent">Parent</button>
   </div>
   <div class="view on" id="v-path"><p class="lead">Six stages, from learning to see to owning a house. Tap a step to open its briefing. Tick the box when it is done.</p><div id="legs"></div></div>
   <div class="view" id="v-ladder"><p class="lead">Fashion is a craft of the hands. Each rung is something to actually make — and together they become a portfolio.</p><div class="ladder" id="rungs"></div>
@@ -260,16 +259,6 @@
     <p class="lead">No one builds alone. Begin with the first two &mdash; they explain why this calling is holy, and what it costs.</p>
     <div id="peopleBox"></div>
     <div class="scrip" style="margin-top:14px"><p>&ldquo;Iron sharpeneth iron; so a man sharpeneth the countenance of his friend.&rdquo;</p><b>Proverbs 27:17</b></div>
-  </div>
-  <div class="view" id="v-parent">
-    <div class="pgate" id="pgate"><h3>Parent access</h3><p>Enter the family PIN to set the stage and manage the plan.</p>
-      <div style="margin-top:12px"><input class="pin-in" id="pin" type="password" inputmode="numeric" maxlength="4" placeholder="&bull;&bull;&bull;&bull;" /><button class="btn pbtn" id="pinBtn">Enter</button></div></div>
-    <div class="ppanel hide" id="ppanel"><h3>Controls</h3>
-      <div class="prow"><label for="ageSet">Current stage (1&ndash;6)</label><input id="ageSet" type="number" min="1" max="6" /></div>
-      <div class="prow" style="border-top:none;color:#324454;font-size:13px;line-height:1.5">Anchored by stage, not grade. Stages 1 and 2 should run at the same time — seeing and making together.</div>
-      <div class="prow"><label>Steps completed</label><b id="pDone">0</b></div>
-      <div class="prow"><label>Craft rungs climbed</label><b id="pMath">0</b></div>
-      <button class="reset" id="resetBtn">Reset all progress</button></div>
   </div>
   <div class="footer">Glory to God alone &middot; Flourish&rsquo;s Path &middot; v2</div>
 </div>
@@ -560,7 +549,7 @@ function renderCards(){var box=el('cardList');box.innerHTML='';
     var d=document.createElement('div');d.className='dstep'+tapp;if(s.brief){d.setAttribute('data-card',i);}
     d.innerHTML='<span class="num">'+(i+1)+'</span>'+tag+'<h5>'+s.h+'</h5><p>'+s.p+'</p>'+chev;box.appendChild(d);}
   bindCards();}
-function renderParentStats(){el('pDone').innerHTML=doneCount()+' / '+totalItems();el('pMath').innerHTML=mathCount()+' / '+LADDER.length;el('ageSet').value=state.age;}
+function renderParentStats(){if(!el('ageSet')){return;}el('pDone').innerHTML=doneCount()+' / '+totalItems();el('pMath').innerHTML=mathCount()+' / '+LADDER.length;el('ageSet').value=state.age;}
 
 function buildBlocks(b){var h='';
   if(b.moment){h+='<div class="moment"><div class="mi">'+b.moment.i+'</div><h4>'+b.moment.h+'</h4><p>'+b.moment.p+'</p></div>';}
@@ -664,7 +653,7 @@ function renderAll(){renderHero();renderPath();renderLadder();renderLaunch();ren
 function beginFlow(){var nm=el('nm').value.replace(/\s+/g,' ').trim();var ar=el('ar').value.replace(/\s+/g,' ').trim();
   if(!nm){el('nm').focus();el('nm').style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--accent');return;}
   state.name=nm;state.air=ar;lsSet(K.name,nm);lsSet(K.air,ar);lsSet(K.age,String(state.age));showApp();toast('Welcome, '+nm+'!');bigBurst();}
-function bindParent(){el('pinBtn').addEventListener('click',function(){if(el('pin').value==='2020'){el('pgate').className='pgate hide';el('ppanel').className='ppanel';renderParentStats();}else{el('pin').value='';el('pin').placeholder='Try again';el('pin').style.borderColor='#b1442f';}});
+function bindParent(){if(!el('pinBtn')){return;}el('pinBtn').addEventListener('click',function(){if(el('pin').value==='2020'){el('pgate').className='pgate hide';el('ppanel').className='ppanel';renderParentStats();}else{el('pin').value='';el('pin').placeholder='Try again';el('pin').style.borderColor='#b1442f';}});
   el('ageSet').addEventListener('change',function(){var a=parseInt(this.value,10);if(a>=1&&a<=PHASES.length){state.age=a;lsSet(K.age,String(a));renderHero();renderPath();}});
   el('resetBtn').addEventListener('click',function(){if(window.confirm('Reset all progress? Name stays saved.')){state.done={};state.math={};saveDone();saveMath();renderAll();toast('Progress reset.');}});}
 function init(){loadState();makeStars();initFx();bindTabs();bindParent();bindComplete();
