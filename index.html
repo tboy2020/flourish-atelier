@@ -134,6 +134,23 @@
   .prow label{font-family:'Saira Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;font-size:12px;color:var(--ink-soft);flex:1}
   .prow input{width:96px;padding:9px;border-radius:9px;border:2px solid #c7bfa6;font-size:15px;text-align:center;font-family:inherit}
   .reset{margin-top:14px;background:none;border:1px solid #b1442f;color:#b1442f;border-radius:10px;padding:10px 16px;font-size:12px;cursor:pointer;font-family:'Saira Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase}
+  .eraH{display:flex;align-items:baseline;gap:11px;padding:16px 2px 10px}
+  .eraH b{font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:26px;color:var(--accent-lite);line-height:1}
+  .eraH span{font-family:'Saira Condensed',sans-serif;font-weight:600;letter-spacing:.04em;font-size:13px;color:#d9cdbe;text-transform:uppercase}
+  .beat{position:relative;padding-left:44px;margin-bottom:9px}
+  .beat .stch{position:absolute;left:17px;top:-4px;bottom:-14px;width:2px;background:repeating-linear-gradient(180deg,var(--accent) 0 7px,transparent 7px 14px)}
+  .beat .knot{position:absolute;left:11px;top:16px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:2px solid var(--hero2);z-index:2}
+  .brow{cursor:pointer;background:var(--panel);color:var(--ink);border-radius:13px;padding:12px 14px;box-shadow:0 10px 22px rgba(10,6,14,.3);display:flex;align-items:center;gap:11px}
+  .brow .yr{flex:0 0 auto;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;color:var(--accent-deep);width:52px}
+  .brow .bt{flex:1;font-size:14.5px;font-weight:600;line-height:1.32}
+  .brow .pl{display:inline-block;font-family:'Saira Condensed',sans-serif;font-weight:700;letter-spacing:.05em;font-size:9.5px;padding:2px 6px;border-radius:5px;margin-top:4px;text-transform:uppercase;background:rgba(181,84,106,.15);color:#8d3b4d}
+  .prow{position:relative;cursor:pointer;background:var(--panel);color:var(--ink);border-radius:16px;padding:16px 40px 16px 54px;margin-bottom:11px;box-shadow:var(--shadow)}
+  .prow .pic{position:absolute;left:15px;top:17px;font-size:21px}
+  .prow .ptg{display:inline-block;font-family:'Saira Condensed',sans-serif;font-weight:700;letter-spacing:.07em;text-transform:uppercase;font-size:10px;padding:3px 8px;border-radius:5px;margin-bottom:6px;background:rgba(201,161,91,.2);color:#8a6720}
+  .prow h4{font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:19px;margin:0 0 2px;color:var(--ink)}
+  .prow .rl{font-size:12.5px;color:var(--accent-deep);font-weight:600;margin-bottom:6px}
+  .prow p{font-size:13.5px;line-height:1.5;color:#4a3c52;margin:0}
+  .prow .cv{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--accent-deep);font-size:23px;font-weight:700;opacity:.55}
   .hide{display:none!important}
   .footer{text-align:center;margin-top:26px;font-family:'Saira Condensed',sans-serif;letter-spacing:.2em;font-size:11px;color:#6f89a1;text-transform:uppercase}
   .brief-screen{position:fixed;inset:0;z-index:70;background:linear-gradient(180deg,var(--bg1) 0%,var(--bg2) 100%);transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column}
@@ -197,7 +214,7 @@
     <div class="wings">&#9986;</div>
     <div class="cover-eyebrow">From the sketchbook to your own house</div>
     <h1>THE<br><span>ATELIER</span></h1>
-    <p class="cover-sub">Learn to see, then learn to make, then build a house with your name on it. The honest road from a sketchbook in Ohio to a label of your own.</p>
+    <p class="cover-sub">Learn to see, then learn to make, then build a house with your name on it. The history, the craft, the road — and the people who walked it before her.</p>
     <div class="verse">&ldquo;Them hath he filled with wisdom of heart, to work all manner of work&hellip; of the embroiderer&hellip; and of the weaver.&rdquo;<b>Exodus 35:35</b></div>
     <div class="field">
       <label for="nm">Future designer, what is your name?</label>
@@ -220,6 +237,8 @@
   <div class="tabs" id="tabs">
     <button class="tab on" data-v="path">The Path</button>
     <button class="tab" data-v="ladder">The Craft</button>
+    <button class="tab" data-v="story">The Story</button>
+    <button class="tab" data-v="mentors">Mentors</button>
     <button class="tab" data-v="launch">Launchpad</button>
     <button class="tab" data-v="cards">The Routes</button>
     <button class="tab" data-v="parent">Parent</button>
@@ -233,6 +252,15 @@
     <div id="cardList"></div>
     <div class="scrip" style="margin-top:6px"><p>&ldquo;She maketh fine linen, and selleth it; and delivereth girdles unto the merchant.&rdquo;</p><b>Proverbs 31:24</b></div>
   </div>
+  <div class="view" id="v-story">
+    <p class="lead">A line of stitching runs down this page. Every stitch is a moment that changed what clothing means &mdash; in Paris, in New York, in Lagos.</p>
+    <div id="storyBox"></div>
+  </div>
+  <div class="view" id="v-mentors">
+    <p class="lead">No one builds alone. Begin with the first two &mdash; they explain why this calling is holy, and what it costs.</p>
+    <div id="peopleBox"></div>
+    <div class="scrip" style="margin-top:14px"><p>&ldquo;Iron sharpeneth iron; so a man sharpeneth the countenance of his friend.&rdquo;</p><b>Proverbs 27:17</b></div>
+  </div>
   <div class="view" id="v-parent">
     <div class="pgate" id="pgate"><h3>Parent access</h3><p>Enter the family PIN to set the stage and manage the plan.</p>
       <div style="margin-top:12px"><input class="pin-in" id="pin" type="password" inputmode="numeric" maxlength="4" placeholder="&bull;&bull;&bull;&bull;" /><button class="btn pbtn" id="pinBtn">Enter</button></div></div>
@@ -243,7 +271,7 @@
       <div class="prow"><label>Craft rungs climbed</label><b id="pMath">0</b></div>
       <button class="reset" id="resetBtn">Reset all progress</button></div>
   </div>
-  <div class="footer">Glory to God alone &middot; Flourish’s Path &middot; v1</div>
+  <div class="footer">Glory to God alone &middot; Flourish&rsquo;s Path &middot; v2</div>
 </div>
 
 <div class="brief-screen" id="brief" aria-hidden="true">
@@ -378,6 +406,117 @@ var CARDS=[
  {h:'Trend forecasting & mood boarding',tag:'Being automated',tagc:'t-risk',p:'AI now generates images, mood boards and trend reports in seconds. Do not build a career on this alone.',brief:{why:'Image generation and trend collage are exactly what AI does easily. The parts it cannot do are physical: cutting, fitting, constructing, judging cloth in the hand, and deciding what is actually worth making. Aim at the hands and the judgement.'}}
 ];
 
+var ERAS=[
+ {d:'1850s\u20131900s',t:'The designer is invented',b:[
+  {id:'h1',yr:'1846\u201351',place:'us',title:'The sewing machine changes everything',
+   brief:{eyebrow:'Clothing for everyone',why:'Before the sewing machine every garment on earth was sewn by hand, which made clothing slow, costly and precious. Machines made by Elias Howe and Isaac Singer changed that. Within a generation ordinary people could own more than two or three garments \u2014 and the garment factory, with all its later abuses, was born at the same moment.',
+     facts:[['Before','Every stitch by hand'],['After','Clothing becomes affordable'],['The shadow','The factory, and the sweatshop, begin here']]}},
+  {id:'h2',yr:'1858',place:'int',title:'Charles Worth invents the fashion house',
+   brief:{eyebrow:'The birth of the designer',why:'An Englishman in Paris did what nobody had done: instead of sewing what clients demanded, Charles Frederick Worth designed collections, showed them on live models, and sewed his own label into the garment. He turned the dressmaker into an author. Every fashion house since \u2014 including one Flourish may one day found \u2014 stands on what he began.',
+     facts:[['The inventions','Seasonal collections, live models, the designer label'],['Why it matters','The designer became the author of the garment']],
+     quiz:[{q:'What made Worth the first true fashion designer?',opts:['He sewed faster','He signed his work and designed collections','He invented the sewing machine'],a:1,ex:'He put his own label in the garment. That act created the profession.'}],
+     scrip:{t:'Them hath he filled with wisdom of heart, to work all manner of work.',r:'Exodus 35:35'}}}]},
+ {d:'1900s\u201320s',t:'Women are set free',b:[
+  {id:'h3',yr:'1906',place:'int',title:'Poiret abandons the corset',
+   brief:{eyebrow:'A body released',why:'Paul Poiret designed dresses that hung from the shoulders instead of squeezing the waist, helping end the tightly corseted era. It shows what fashion does again and again: it changes what a body is allowed to be.',
+     facts:[['The change','Clothing hanging from the shoulder'],['The lesson','Fashion does not only decorate bodies \u2014 it governs them']]}},
+  {id:'h4',yr:'1920s',place:'int',title:'Chanel and Vionnet rewrite the rules',
+   brief:{eyebrow:'Simplicity and the bias cut',why:'Coco Chanel made elegance out of ease using humble jersey, and popularised the little black dress. Madeleine Vionnet did something quieter and more technical: she cut cloth on the bias, diagonally across the weave, so it flowed around the body without corsetry. Vionnet is the designer other designers study, because her genius was in the cut itself.',
+     facts:[['Chanel','Jersey, simplicity, the little black dress'],['Vionnet','The bias cut \u2014 pure technical mastery'],['For Flourish','Vionnet proves construction IS design']]}}]},
+ {d:'1930s\u201350s',t:'Mastery, and a hidden name',b:[
+  {id:'h5',yr:'1947',place:'int',title:'Dior\u2019s New Look',
+   brief:{eyebrow:'A silhouette that shook the world',why:'After wartime fabric rationing, Christian Dior showed tiny waists and enormous skirts using yards of material. Criticised as wasteful, celebrated as hopeful, it restored Paris to the centre of fashion \u2014 and showed how a collection can capture exactly what a society is feeling.',
+     facts:[['The silhouette','Tiny waist, full skirt, extravagant fabric'],['The lesson','Great collections answer the mood of their moment']]}},
+  {id:'h6',yr:'1953',place:'us',title:'The most photographed dress in history',
+   brief:{eyebrow:'And the name that was left out',why:'Jacqueline Bouvier married John F. Kennedy in an ivory silk taffeta gown of some fifty yards, with a portrait neckline and bands of intricate tucking. It became one of the most photographed garments ever made. The designer was Ann Lowe, a Black American woman, and she was not credited. Her full story is in the Mentors tab \u2014 read it before anything else in this app.',
+     facts:[['The dress','~50 yards of ivory silk taffeta'],['The designer','Ann Lowe, uncredited at the time']],
+     scrip:{t:'The stone which the builders refused is become the head stone of the corner.',r:'Psalm 118:22'}}},
+  {id:'h7',yr:'1950s',place:'int',title:'Balenciaga \u2014 the master of the cut',
+   brief:{eyebrow:'The couturier\u2019s couturier',why:'Crist\u00f3bal Balenciaga was revered by other designers because he could do every part of the work himself \u2014 design, cut, fit and sew. Christian Dior said haute couture was an orchestra whose conductor was Balenciaga, and that the rest of them were merely the musicians. His story is in the Mentors tab too.',
+     facts:[['Why revered','He could cut and sew every garment himself'],['Dior said','He was the conductor; the rest were musicians'],['The lesson','Technical mastery is what makes a designer free']]}}]},
+ {d:'1960s\u201370s',t:'Ready-to-wear, and a night at Versailles',b:[
+  {id:'h8',yr:'1960s',place:'int',title:'Ready-to-wear takes over',
+   brief:{eyebrow:'Fashion leaves the salon',why:'Designers such as Yves Saint Laurent began selling finished garments in standard sizes instead of made-to-measure couture. Youth culture and mass retail moved power from a few wealthy clients to millions of ordinary shoppers. Almost every fashion job that exists today exists because of this shift.',
+     facts:[['Couture','Made to measure, for a few'],['Ready-to-wear','Standard sizes, for millions']]}},
+  {id:'h9',yr:'1973',place:'int',title:'The Battle of Versailles',
+   brief:{eyebrow:'The night the rules changed',why:'A charity show at the Palace of Versailles set five French couture houses against five American designers. The French show was lavish and long. The American one was short, modern, set to music, and carried by its models \u2014 many of them Black, dancing rather than merely walking. The Americans stunned the room. It broke the assumption that fashion authority belonged to Paris alone.',
+     facts:[['What changed','American design taken seriously; Black models centred'],['The lesson','An outsider with a point of view can beat the establishment']],
+     quiz:[{q:'What won the night for the American designers?',opts:['A bigger budget','Modern energy and their models','Older, grander clothes'],a:1,ex:'Point of view and energy beat budget and tradition.'}]}}]},
+ {d:'1980s\u201390s',t:'The world arrives, the brand takes over',b:[
+  {id:'h10',yr:'1980s',place:'int',title:'Japan disrupts Paris',
+   brief:{eyebrow:'Another way to see clothing',why:'Rei Kawakubo and Yohji Yamamoto arrived in Paris with black, asymmetric, deliberately imperfect clothing that ignored Western ideas of beauty. Critics were hostile. They changed fashion permanently \u2014 proof that a designer from outside the European tradition can reset the entire conversation.',
+     facts:[['The shock','Black, asymmetric, anti-glamour'],['For Flourish','Outsiders with conviction rewrite the rules']]}},
+  {id:'h11',yr:'1990s',place:'int',title:'Luxury becomes big business \u2014 and fast fashion arrives',
+   brief:{eyebrow:'Money enters the atelier',why:'Historic houses were gathered into vast luxury groups, and the celebrity creative director was born. At the same time global chains learned to copy runway ideas and deliver them to shops within weeks. Clothing became cheaper than at any point in human history \u2014 and people began buying far more of it and keeping it far less time.',
+     facts:[['Luxury','Independent houses absorbed into groups'],['Fast fashion','Copy quickly, produce cheaply, sell enormous volume'],['The cost','Waste, disposability, and pressure on the people who sew']]}}]},
+ {d:'2010s',t:'The reckoning',b:[
+  {id:'h12',yr:'2013',place:'int',title:'Rana Plaza \u2014 the day fashion had to look at itself',
+   brief:{eyebrow:'The true price of cheap clothing',why:'A garment factory complex called Rana Plaza collapsed in Bangladesh, killing more than a thousand workers making clothes for well-known Western brands. Cracks had been reported the day before and workers were sent back in anyway. Every serious conversation about ethical fashion today begins here.',
+     facts:[['Where','Dhaka, Bangladesh, April 2013'],['The toll','More than 1,100 garment workers killed'],['The question it asks','Who made my clothes?']],
+     scrip:{t:'Behold, the hire of the labourers... crieth: and the cries... are entered into the ears of the Lord.',r:'James 5:4'}}},
+  {id:'h13',yr:'2018',place:'us',title:'A door opens at the top of luxury',
+   brief:{eyebrow:'Representation at the summit',why:'Virgil Abloh, an American designer of Ghanaian parentage who came up through streetwear rather than couture training, was appointed artistic director of Louis Vuitton menswear \u2014 one of the most powerful creative roles in French luxury, and one no Black American had held there before.',
+     facts:[['The role','Artistic director, Louis Vuitton menswear'],['Why it mattered','The most exclusive rooms in fashion are not sealed forever']]}}]},
+ {d:'2020s',t:'Africa rises, and machines start drawing',b:[
+  {id:'h14',yr:'2019\u201320',place:'int',title:'African designers reach the summit',
+   brief:{eyebrow:'The continent steps forward',why:'Thebe Magugu of South Africa won the LVMH Prize, among the most significant awards a young designer can receive, and Imane Ayissi of Cameroon was invited to show at Paris haute couture week \u2014 a rare honour for a designer working from sub-Saharan African traditions. Nigerians Kenneth Ize and Adebayo Oke-Lawal built international followings using African textiles and craft.',
+     facts:[['Thebe Magugu','South Africa \u2014 LVMH Prize winner'],['Imane Ayissi','Cameroon \u2014 Paris haute couture week'],['Nigeria','Kenneth Ize, Adebayo Oke-Lawal and others']],
+     scrip:{t:'And the Gentiles shall come to thy light, and kings to the brightness of thy rising.',r:'Isaiah 60:3'}}},
+  {id:'h15',yr:'2023',place:'int',title:'UNESCO comes to Lagos',
+   brief:{eyebrow:'Africa\u2019s fashion economy, counted at last',why:'UNESCO released its first-ever report on African fashion, launching it at Lagos Fashion Week. It valued the continent\u2019s annual textile exports at about $15.5 billion and said earnings could triple within a decade with proper investment \u2014 while naming the obstacles honestly: too little investment, weak infrastructure, limited training, poor protection of designs, and difficulty sourcing good materials affordably.',
+     facts:[['Exports','~$15.5 billion a year'],['Potential','Could triple in a decade'],['Imports','~$23.1 billion of textiles and clothing coming in'],['The obstacles','Investment, infrastructure, training, design protection']],
+     quiz:[{q:'What did UNESCO say about African fashion\u2019s potential?',opts:['It has peaked','Earnings could triple in a decade with investment','It is too small to measure'],a:1,ex:'About $15.5 billion today, and it could triple. She would be entering at exactly the right moment.'}],
+     map:{lat:6.4281,lng:3.4219,addr:'Lagos, Nigeria \u2014 home of Lagos Fashion Week'}}},
+  {id:'h16',yr:'2024\u201326',place:'us',title:'Machines learn to draw clothes',
+   brief:{eyebrow:'What AI can and cannot take',why:'AI now generates fashion imagery, mood boards and trend reports in seconds, and 3D tools let designers sample garments digitally before cutting cloth. But a model cannot cut a pattern that fits a living body, pin a toile on a form, judge the weight of a cloth in the hand, or stand in a factory and decide what is good enough to ship. The image is cheap now. The hand and the judgement are not.',
+     facts:[['Automated','Mood boards, trend collage, fashion imagery'],['Still human','Cutting, fitting, construction, fabric judgement, taste'],['The lesson','Aim at the hands and the judgement']],
+     scrip:{t:'And all the women that were wise hearted did spin with their hands.',r:'Exodus 35:25'}}}]}
+];
+var PEOPLE=[
+ {ic:'&#128293;',tag:'Scripture',name:'Bezalel & Aholiab',role:'The first designers God named Himself',
+  p:'Before any fashion house existed, God filled two craftsmen with His Spirit \u2014 for embroidery and weaving.',
+  brief:{eyebrow:'Where this calling begins',
+   why:'In Exodus, God calls two men by name, Bezalel and Aholiab, and says He has filled them with the Spirit of God in wisdom, understanding and knowledge, and in all manner of workmanship \u2014 to devise skilful works, to engrave, and to work as embroiderers and weavers in blue, purple and scarlet and fine linen. This is remarkable: the first people Scripture describes as filled with the Spirit of God were not prophets or kings. They were artisans, and their craft explicitly included the needle and the loom. If Flourish ever wonders whether making beautiful clothing is a small or worldly calling, this is the answer. God Himself named it, filled people for it, and called it good.',
+   facts:[['Where','Exodus 31 and Exodus 35'],['Their craft','Design, engraving, embroidery, weaving, fine linen'],['What God gave them','His own Spirit, in wisdom and workmanship'],['Also this','They taught others \u2014 the craft was made to be passed on']],
+   scrip:{t:'And he hath filled him with the spirit of God, in wisdom... and in all manner of workmanship... of the embroiderer... and of the weaver, even of them that do any work, and of those that devise cunning work.',r:'Exodus 35:31\u201335'}}},
+ {ic:'&#129525;',tag:'The hidden maker',name:'Ann Lowe',role:'She made the dress the world saw \u2014 and no one said her name',
+  p:'Granddaughter of an enslaved seamstress. First noted African American couture designer. Uncredited for decades.',
+  brief:{eyebrow:'A story to carry',
+   why:'Ann Cole Lowe was born in Clayton, Alabama in 1898 into a family of seamstresses. Her grandmother had been born into slavery and sewed for the woman who owned her. Ann learned at her mother\u2019s side, and when her mother died with gowns unfinished for the governor\u2019s wife, teenage Ann completed them herself. She became the first African American designer of note in American high fashion, dressing the du Ponts, the Roosevelts and the Rockefellers \u2014 families who would not have invited her to dinner. In 1953 she made the wedding gown for Jacqueline Bouvier\u2019s marriage to John F. Kennedy: some fifty yards of ivory silk taffeta and months of intricate tucking. Then, days before the wedding, a flood ruined the gown and the bridesmaids\u2019 dresses in her workroom. She and her team rebuilt them all in a handful of days, lost every penny of profit, and paid thousands from her own pocket to deliver on time. When she brought the gowns, she was directed to the back entrance and insisted on going through the front. The dress became one of the most photographed garments in history. Her name was not printed. Asked who made it, the bride called her a coloured dressmaker. Ann Lowe kept working. She opened a salon in Harlem, and later became the first Black person with a business on Madison Avenue. She was underpaid for decades, called society\u2019s best-kept secret, and eventually went bankrupt. Her gowns now sit in the Smithsonian. She said what she wanted was to prove that a Negro can become a major dress designer. She did. It took the world seventy years to say her name.',
+   facts:[['Born','1898, Clayton, Alabama'],['The gown','Jacqueline Bouvier\u2019s 1953 wedding dress'],['The flood','Days before the wedding \u2014 she remade everything at her own cost'],['The credit','None at the time'],['The firsts','First noted African American couturier; first Black business owner on Madison Avenue'],['Now','Her work is held by the Smithsonian']],
+   quiz:[{q:'What happened days before the Kennedy wedding?',opts:['The dress was cancelled','A flood destroyed the gowns and she remade them at her own cost','She refused to finish'],a:1,ex:'She rebuilt them in days, lost all profit, and delivered on time.'}],
+   scrip:{t:'The stone which the builders refused is become the head stone of the corner. This is the LORD\u2019S doing; it is marvellous in our eyes.',r:'Psalm 118:22\u201323'}}},
+ {ic:'&#127801;',tag:'Nigeria \u00b7 Christian',name:'Folorunso Alakija',role:'From tailoring shop to oil magnate and minister of the gospel',
+  p:'A Nigerian woman who left banking for fashion design, built a household-name house, then an empire \u2014 and preaches.',
+  brief:{eyebrow:'The closest example to her own life',
+   why:'Folorunso Alakija was working in Nigerian banking when she left it to follow what she has described as a creative calling. She went to London to study fashion design at the American College and the Central School of Fashion, then returned home and opened a tailoring business called Supreme Stitches in 1983. She deliberately turned away from copying European designs and built her house around African fabrics and Nigerian styles made in Nigeria \u2014 and it became a household name. In 1996 she renamed it the Rose of Sharon House of Fashion, taking the name from Song of Solomon, a title long understood as belonging to Christ. She became National President of the Fashion Designers Association of Nigeria. From that foundation she built further: an oil company, printing businesses, property. She became one of the wealthiest women in Africa. And she founded the Rose of Sharon Foundation, which supports widows and orphans, and the Rose of Sharon Glorious Ministry International, where she ministers. She has written Christian books. For a Nigerian girl in Ohio who loves fashion and loves God, there may be no closer example alive: she began with a sewing business, she never hid her faith, and she used what she built to lift widows and orphans.',
+   facts:[['Started','Supreme Stitches, a tailoring business, 1983'],['Her choice','African fabrics and Nigerian styles, made in Nigeria'],['Renamed','Rose of Sharon House of Fashion \u2014 from Song of Solomon'],['Led','National President, Fashion Designers Association of Nigeria'],['Then','Famfa Oil, printing, property \u2014 one of Africa\u2019s wealthiest women'],['Her ministry','Rose of Sharon Foundation for widows and orphans; she ministers and writes Christian books']],
+   quiz:[{q:'Where does the name "Rose of Sharon" come from?',opts:['A flower shop in Lagos','The Song of Solomon in Scripture','A London fashion school'],a:1,ex:'Song of Solomon 2:1 \u2014 a title long understood as belonging to Christ. She named her fashion house after Him.'}],
+   scrip:{t:'I am the rose of Sharon, and the lily of the valleys.',r:'Song of Solomon 2:1'}}},
+ {ic:'&#9993;',tag:'Spain \u00b7 Catholic',name:'Crist\u00f3bal Balenciaga',role:'The master of the craft, who went to Mass every morning',
+  p:'Dior called him the conductor of the orchestra. He learned to sew from his mother and apprenticed at twelve.',
+  brief:{eyebrow:'Faith and the discipline of the hand',
+   why:'Crist\u00f3bal Balenciaga was born in 1895 in a small Basque fishing village in Spain. His mother was a seamstress and taught him to sew; at twelve he began an apprenticeship with a local tailor. He opened his first house at twenty-two and eventually moved to Paris, where he became the most respected couturier of his age. Christian Dior said haute couture was like an orchestra whose conductor was Balenciaga, and that the rest of them were only the musicians. What set him apart was simple and demanding: unlike almost every other great designer, he could personally do every stage of the work \u2014 design, cut, fit and sew. He was also a devout Catholic who came from a deeply religious family, attended Mass daily even after moving to Paris, had an uncle who was a parish priest, and in his youth considered entering the priesthood himself. The austerity and sculptural calm of his clothes drew openly on the vestments, drapery and religious art he had grown up among. He is the argument, in one life, that reverence and mastery belong together \u2014 and that a designer who truly knows the hand is free.',
+   facts:[['Born','1895, Getaria, Basque Spain'],['Taught by','His mother, a seamstress \u2014 apprenticed to a tailor at 12'],['His gift','He could design, cut, fit and sew every garment himself'],['His faith','Devout Catholic; daily Mass; once considered the priesthood'],['Dior said','Haute couture is an orchestra whose conductor is Balenciaga']],
+   scrip:{t:'Seest thou a man diligent in his business? he shall stand before kings.',r:'Proverbs 22:29'}}},
+ {ic:'&#128085;',tag:'Ghana \u00b7 Britain',name:'Ozwald Boateng',role:'Savile Row tailor who became creative director at Givenchy',
+  p:'The creative-director road Flourish is drawn to \u2014 walked by a man of Ghanaian heritage, through tailoring.',
+  brief:{eyebrow:'How a creative director is actually made',
+   why:'Ozwald Boateng, born in London to Ghanaian parents, learned tailoring and became the youngest tailor \u2014 and the first Black tailor \u2014 to open a shop on Savile Row, the historic street of British bespoke tailoring. He brought sharp colour into a world of grey and navy. On the strength of that craft he was appointed creative director of Givenchy menswear in Paris, holding the role for several years. His route matters enormously for Flourish: he did not arrive at creative direction through image-making or styling alone. He arrived through the needle. He learned to cut and build a suit properly, and that mastery is what earned him a house.',
+   facts:[['Heritage','British-born, Ghanaian parents'],['The craft','Bespoke tailoring \u2014 first Black tailor on Savile Row'],['The role','Creative director, Givenchy menswear'],['The lesson','Creative direction is earned through craft, not around it']]}},
+ {ic:'&#127757;',tag:'Now',name:'The designers of her own generation',role:'Africans reshaping global luxury today',
+  p:'Thebe Magugu, Imane Ayissi, Kenneth Ize, Adebayo Oke-Lawal, Lisa Folawiyo and others.',
+  brief:{eyebrow:'Her contemporaries',
+   why:'These are living designers she can follow week by week. Thebe Magugu of South Africa won the LVMH Prize. Imane Ayissi of Cameroon was invited to Paris haute couture week. Kenneth Ize built an international label around hand-woven Nigerian ase-oke. Adebayo Oke-Lawal\u2019s Orange Culture has been recognised globally. Lisa Folawiyo transformed how ankara is seen. Watching them closely teaches more about the actual road than studying houses that are a century old.',
+   facts:[['Follow them','On their own collections and at Lagos Fashion Week'],['Why it matters','These are living, reachable examples \u2014 not history'],['Notice','Almost all of them built on African craft rather than away from it']]}},
+ {ic:'&#128172;',tag:'Do this now',name:'Find a mentor of your own',role:'The nearest door, and the most important one',
+  p:'Ask your art teacher. Ask at church. Ask the tailor who hems your clothes.',
+  brief:{eyebrow:'The practical step',
+   why:'Programmes and famous names inspire, but one real person who teaches you changes everything. UNESCO specifically urged African countries to build mentoring schemes so textile skills pass from one generation to the next \u2014 and in Nigerian and African communities, master tailors are everywhere. The person who will teach Flourish to sew is very likely already known to her family.',
+   how:['Ask your art teacher who they know.','Ask at church \u2014 someone in the congregation sews beautifully.','Ask the tailor who alters your clothes whether you may watch and help.','Offer to help before you ask to learn. Be reliable. Say thank you.'],
+   scrip:{t:'One generation shall praise thy works to another, and shall declare thy mighty acts.',r:'Psalm 145:4'}}}
+];
+
 
 function el(id){return document.getElementById(id);}
 function totalItems(){var n=0;for(var i=0;i<PHASES.length;i++){n+=PHASES[i].items.length;}return n;}
@@ -452,21 +591,35 @@ function buildMap(m){var b0=(m.lng-0.012),b1=(m.lat-0.008),b2=(m.lng+0.012),b3=(
   return '<div class="blk"><p class="blk-h">&#128205; Where it is</p><iframe class="map" loading="lazy" src="'+src+'"></iframe><p style="font-size:13px;color:#bcd2e5;margin:9px 0 0">'+m.addr+'</p><a class="maplink" href="'+g+'" target="_blank" rel="noopener">Open in Google Maps</a></div>';}
 
 var BRIEF_OPEN=null,BRIEF_KIND=null,PUSHED=false;
+function findBeat(id){for(var i=0;i<ERAS.length;i++){for(var j=0;j<ERAS[i].b.length;j++){if(ERAS[i].b[j].id===id){return ERAS[i].b[j];}}}return null;}
+function renderStory(){var box=el('storyBox');if(!box){return;}var h='';
+  for(var i=0;i<ERAS.length;i++){var e=ERAS[i];h+='<div class="eraH"><b>'+e.d+'</b><span>'+e.t+'</span></div>';
+    for(var j=0;j<e.b.length;j++){var bt=e.b[j];
+      h+='<div class="beat"><div class="stch"></div><div class="knot"></div><div class="brow" data-beat="'+bt.id+'"><span class="yr">'+bt.yr+'</span><span class="bt">'+bt.title+'<span class="pl">'+(bt.place==='us'?'United States':'International')+'</span></span></div></div>';}}
+  box.innerHTML=h;var rs=box.querySelectorAll('.brow');
+  for(var k=0;k<rs.length;k++){rs[k].addEventListener('click',function(){openBrief(this.getAttribute('data-beat'),'beat');});}}
+function renderPeople(){var box=el('peopleBox');if(!box){return;}var h='';
+  for(var i=0;i<PEOPLE.length;i++){var p=PEOPLE[i];
+    h+='<div class="prow" data-person="'+i+'"><span class="pic">'+p.ic+'</span><span class="ptg">'+p.tag+'</span><h4>'+p.name+'</h4><div class="rl">'+p.role+'</div><p>'+p.p+'</p><span class="cv">&#8250;</span></div>';}
+  box.innerHTML=h;var ps=box.querySelectorAll('.prow');
+  for(var k=0;k<ps.length;k++){ps[k].addEventListener('click',function(){openBrief(parseInt(this.getAttribute('data-person'),10),'person');});}}
 function openBrief(id,kind){var b,fl,title,meta;
-  if(kind==='ladder'){var d;for(var i=0;i<LADDER.length;i++){if(LADDER[i].id===id){d=LADDER[i];}}b=d.brief||{why:d.w};fl=LADDER_TAG;title=d.h;meta='Craft rungs &middot; '+SUBJECT_WORD;}
+  if(kind==='beat'){var bb=findBeat(id);b=bb.brief;fl=bb.yr;title=bb.title;meta=(bb.place==='us'?'United States':'International')+' &middot; '+b.eyebrow;}
+  else if(kind==='person'){var pp=PEOPLE[id];b=pp.brief;fl=pp.tag;title=pp.name;meta=pp.role;}
+  else if(kind==='ladder'){var d;for(var i=0;i<LADDER.length;i++){if(LADDER[i].id===id){d=LADDER[i];}}b=d.brief||{why:d.w};fl=LADDER_TAG;title=d.h;meta='Craft rungs &middot; '+SUBJECT_WORD;}
   else if(kind==='card'){var c=CARDS[id];b=c.brief||{why:c.p};fl=c.tag?c.tag:'Route';title=c.h;meta='The Routes';}
   else{var f=findItem(id);b=BRIEFS[id]||{why:f.it.t.replace(/<[^>]+>/g,''),scrip:f.ph.scrip};fl=f.ph.fl;title=f.it.t.replace(/\s*\u2708/,'');meta=f.ph.name+' &middot; '+f.ph.ageLbl;}
   el('briefFl').innerHTML=fl;
   el('briefBody').innerHTML='<div class="brief-eyebrow">Briefing</div><h1 class="brief-title">'+title+'</h1><div class="brief-meta">'+meta+'</div>'+buildBlocks(b);
   el('briefBody').scrollTop=0;
   var foot=el('completeBtn');
-  if(kind==='card'){foot.style.display='none';}
+  if(kind==='card'||kind==='beat'||kind==='person'){foot.style.display='none';}
   else{foot.style.display='block';var done=(kind==='ladder')?state.math[id]:state.done[id];setCompleteBtn(done);}
   BRIEF_OPEN=id;BRIEF_KIND=kind;
   var sc=el('brief');sc.className='brief-screen open';sc.setAttribute('aria-hidden','false');bindQuiz();
   try{if(!PUSHED){history.pushState({b:1},'');PUSHED=true;}}catch(e){}}
 function closeBrief(fromPop){var sc=el('brief');sc.className='brief-screen';sc.setAttribute('aria-hidden','true');
-  BRIEF_OPEN=null;BRIEF_KIND=null;renderHero();renderPath();renderLadder();renderParentStats();
+  BRIEF_OPEN=null;BRIEF_KIND=null;renderHero();renderPath();renderLadder();renderStory();renderPeople();renderParentStats();
   if(!fromPop&&PUSHED){try{history.back();}catch(e){}PUSHED=false;}else{PUSHED=false;}}
 function setCompleteBtn(done){var btn=el('completeBtn');if(done){btn.className='complete-btn did';btn.innerHTML='&#10003; Completed &mdash; tap to undo';}else{btn.className='complete-btn todo';btn.innerHTML='Mark complete';}}
 
@@ -507,7 +660,7 @@ function tick(){ctx.clearRect(0,0,cvs.width,cvs.height);for(var i=parts.length-1
 function burst(){spawn(26);}function bigBurst(){spawn(90);}
 function makeStars(){var s=el('stars');var html='';for(var i=0;i<46;i++){html+='<i style="top:'+(Math.random()*70)+'%;left:'+(Math.random()*100)+'%;animation-delay:'+(Math.random()*4).toFixed(1)+'s"></i>';}s.innerHTML=html;}
 function showApp(){el('cover').style.display='none';el('app').style.display='block';renderAll();}
-function renderAll(){renderHero();renderPath();renderLadder();renderLaunch();renderCards();renderParentStats();}
+function renderAll(){renderHero();renderPath();renderLadder();renderLaunch();renderCards();renderStory();renderPeople();renderParentStats();}
 function beginFlow(){var nm=el('nm').value.replace(/\s+/g,' ').trim();var ar=el('ar').value.replace(/\s+/g,' ').trim();
   if(!nm){el('nm').focus();el('nm').style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--accent');return;}
   state.name=nm;state.air=ar;lsSet(K.name,nm);lsSet(K.air,ar);lsSet(K.age,String(state.age));showApp();toast('Welcome, '+nm+'!');bigBurst();}
